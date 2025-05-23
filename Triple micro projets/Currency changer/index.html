@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency changer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="overflow: hidden;">
+<div id="container">
+    <div id="entry_div" class="morice">
+        <div class="buttons">
+            <button class="butt" data-devise="dollar" onclick="selectCurrency(this, 'entry')">$</button>
+            <button class="butt" data-devise="euro" onclick="selectCurrency(this, 'entry')">€</button>
+            <button class="butt" data-devise="livre" onclick="selectCurrency(this, 'entry')">£</button>
+            <button class="butt" data-devise="bitcoin" onclick="selectCurrency(this, 'entry')">&#8383;</button>
+        </div>
+        <input id="entry" type="number" autocomplete="off" placeholder="1" name="name" />
+    </div>
+
+    <div id="output_div" class="morice">
+        <div class="buttons">
+            <button class="butt" data-devise="dollar" onclick="selectCurrency(this, 'output')">$</button>
+            <button class="butt" data-devise="euro" onclick="selectCurrency(this, 'output')">€</button>
+            <button class="butt" data-devise="livre" onclick="selectCurrency(this, 'output')">£</button>
+            <button class="butt" data-devise="bitcoin" onclick="selectCurrency(this, 'output')">&#8383;</button>
+        </div>
+        <input type="number" disabled placeholder="0.00" id="result" />
+    </div>
+</div>
+
+<script src="cash.js"></script>
+</body>
+
+</html>
