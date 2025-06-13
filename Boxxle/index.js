@@ -33,7 +33,13 @@ function startGame() {
     currentLevelIndex = 0;
     loadLevel(currentLevelIndex);
     enableGame();
+    gameLoop();
 }
+function gameLoop() {
+    generateGrid();
+    requestAnimationFrame(gameLoop);
+}
+
 
 function enableGame() {
     window.addEventListener('keydown', handleKeyDown);
@@ -53,11 +59,20 @@ function handleKeyDown(e) {
 function loadLevel(index) {
     currentLevel = JSON.parse(JSON.stringify(Levels[index]));
     playerPos = findPlayer();
+
+    if (!playerPos) {
+        alert("❌ Ce niveau ne contient pas de joueur (valeur 3).");
+        menu.style.display = 'flex';
+        document.getElementById('hud').style.display = 'none';
+        return;
+    }
+
     steps = 0;
     updateStepCounter();
     messageDiv.textContent = '';
     generateGrid();
 }
+
 
 function findPlayer() {
     for (let y = 0; y < currentLevel.length; y++) {
