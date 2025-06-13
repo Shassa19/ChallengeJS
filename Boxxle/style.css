@@ -1,0 +1,152 @@
+body {
+    background: rgb(176, 149, 30);
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gameboard {
+    display: grid;
+    grid-template-columns: repeat(10, 64px);
+    grid-template-rows: repeat(10, 64px);
+    gap: 0;
+    margin: 20px 0;
+}
+
+.cell {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    background-image: url('./assets/PNG/Default size/Ground/ground_06.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cell::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+}
+
+.wall::after {
+    background-image: url('./assets/PNG/Default size/Blocks/block_04.png');
+}
+
+.box::after {
+    background-image: url('./assets/PNG/Default size/Crates/Crate_05.png');
+}
+
+.box-on-target::after {
+    background-image: url('./assets/PNG/Default size/Crates/Crate_30.png');
+}
+
+.target::after {
+    background-image: url('./assets/PNG/Default size/Environment/environment_10.png');
+}
+
+.player-up::after {
+    background-image: url('./assets/PNG/Default size/Player/player_02.png');
+}
+
+.player-down::after {
+    background-image: url('./assets/PNG/Default size/Player/player_05.png');
+}
+
+.player-left::after {
+    background-image: url('./assets/PNG/Default size/Player/player_14.png');
+}
+
+.player-right::after {
+    background-image: url('./assets/PNG/Default size/Player/player_11.png');
+}
+
+#hud {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+#stepCounter {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #222;
+}
+
+#resetBtn {
+    padding: 8px 16px;
+    font-size: 14px;
+    background: #f0f0f0;
+    border: 1px solid #333;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#resetBtn:hover {
+    background: #ddd;
+}
+
+#timerDisplay {
+    font-size: 1.3em;
+    color: #b20000;
+}
+
+#message {
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: green;
+    text-align: center;
+    font-weight: bold;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    gap: 30px;
+}
+
+#gameTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000;
+}
+
+#modeButtons {
+    display: flex;
+    gap: 50px;
+}
+
+#modeButtons button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #f9f9f9;
+    border: 2px solid #333;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#modeButtons button:hover {
+    background-color: #ddd;
+    transform: scale(1.05);
+}
+
